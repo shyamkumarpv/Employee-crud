@@ -4,16 +4,13 @@ import lombok.*;
 
 @Builder
 @Getter
-@Setter
-@NoArgsConstructor
 @AllArgsConstructor
-
 public class EmployeeResponse {
     private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
+    private String firstName; // should not be empty
+    private String lastName; // should not be empty
+    private String email; // valid email
+    private String phone; // should be 10 digits
     private String position;
     private String department;
 }
