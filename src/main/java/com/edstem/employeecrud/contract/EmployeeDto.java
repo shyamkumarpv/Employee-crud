@@ -2,8 +2,10 @@ package com.edstem.employeecrud.contract;
 
 import lombok.*;
 
-@Data
+
 @Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeDto {

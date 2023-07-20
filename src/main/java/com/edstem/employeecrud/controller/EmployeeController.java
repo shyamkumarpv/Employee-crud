@@ -1,11 +1,8 @@
 package com.edstem.employeecrud.controller;
 
-
-import com.edstem.employeecrud.contract.EmployeeRequest;
 import com.edstem.employeecrud.contract.EmployeeDto;
-
 import com.edstem.employeecrud.service.EmployeeService;
-
+import com.edstem.employeecrud.model.Employee;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,11 +14,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-
     private final EmployeeService employeeService;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService) {
+    public EmployeeController(EmployeeService  employeeService) {
         this.employeeService = employeeService;
     }
 
@@ -37,7 +33,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<EmployeeDto> addEmployee(@Valid @RequestBody EmployeeDto employee) {
+    public ResponseEntity<EmployeeDto> addEmployee( @Valid @RequestBody EmployeeDto employee) {
         EmployeeDto employeeDto = employeeService.addEmployee(employee);
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
@@ -45,7 +41,7 @@ public class EmployeeController {
 
     @PutMapping("/{id}")
     public ResponseEntity<EmployeeDto> updateEmployeeById(
-            @PathVariable int id, @Valid @RequestBody EmployeeRequest employee) {
+            @PathVariable int id, @Valid @RequestBody EmployeeDto employee) {
         EmployeeDto updatedEmployee = employeeService.updateEmployeeById(id, employee);
         return new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
