@@ -14,14 +14,12 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-
 public class Employee {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-
     private int id;
+
     @NotBlank(message = "First name is required")
     @Size(min = 3, message = "name contain at least three letters")
     private String firstName;
@@ -42,14 +40,4 @@ public class Employee {
 
     @NotBlank(message = "Department cannot be empty")
     private String department;
-
-
 }
-
-
-
-
-
-
-
-

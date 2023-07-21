@@ -8,11 +8,9 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class EmployeeCrudApplication {
 
-
     public static void main(String[] args) {
         SpringApplication.run(EmployeeCrudApplication.class, args);
     }
-
 
     @Bean
     public ModelMapper modelMapper() {

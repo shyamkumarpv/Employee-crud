@@ -1,21 +1,24 @@
 package com.edstem.employeecrud.contract;
 
+import com.edstem.employeecrud.validation.ValidEmail;
+import com.edstem.employeecrud.validation.ValidFirstName;
+import com.edstem.employeecrud.validation.ValidLastName;
+import com.edstem.employeecrud.validation.ValidPhone;
 import lombok.*;
-
 
 @Builder
 @Getter
+@Setter
 @AllArgsConstructor
-<<<<<<< HEAD:src/main/java/com/edstem/employeecrud/contract/EmployeeDto.java
+@NoArgsConstructor
 public class EmployeeDto {
-=======
-public class EmployeeResponse {
->>>>>>> 00d3eb641b6d486478e3508b4d6c5dff75cbfb38:src/main/java/com/edstem/employeecrud/contract/EmployeeResponse.java
+
     private int id;
-    private String firstName; // should not be empty
-    private String lastName; // should not be empty
-    private String email; // valid email
-    private String phone; // should be 10 digits
+
+    @ValidFirstName private String firstName; // should not be empty
+    @ValidLastName private String lastName; // should not be empty
+    @ValidEmail private String email; // valid email
+    @ValidPhone private String phone; // should be 10 digits
     private String position;
     private String department;
 }
